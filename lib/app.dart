@@ -1,3 +1,5 @@
+import 'package:blobgram/controllers/config.dart';
+import 'package:blobgram/screens/not_found.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,10 +10,15 @@ class BlobgramApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       title: 'blobgram',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      initialRoute: Paths[Path.home]!,
+      unknownRoute: GetPage(
+          name: Paths[Path.notFound]!, page: () => const NotFoundScreen()),
+      getPages: [
+        GetPage(name: Paths[Path.home]!, page: () => const HomeScreen()),
+      ],
     );
   }
 }
