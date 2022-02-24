@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'app.dart';
+import 'services/setup.dart';
 
-void main() {
+void main() async {
+  await setup();
   runApp(
-    const CounterApp(),
+    const BlobgramApp(),
   );
 }
