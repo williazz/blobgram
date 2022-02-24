@@ -4,7 +4,13 @@ import 'post.dart';
 import 'stories.dart';
 
 class FeedWidget extends StatelessWidget {
-  const FeedWidget({Key? key}) : super(key: key);
+  final bool showStories;
+  final bool getUsernameFromUrl;
+  const FeedWidget({
+    Key? key,
+    this.showStories = true,
+    this.getUsernameFromUrl = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +21,8 @@ class FeedWidget extends StatelessWidget {
         return const Divider(height: 4);
       },
       itemBuilder: (context, index) {
-        if (index == 0) return const StoriesPanelWidget();
-        return const PostWidget();
+        if (showStories && index == 0) return const StoriesPanelWidget();
+        return PostWidget(getUsernameFromUrl: getUsernameFromUrl);
       },
     );
   }
