@@ -15,3 +15,9 @@ class Param {
   static const username = 'username';
   static const postId = 'postId';
 }
+
+@immutable
+class NavigationId {
+  static const home = Path.home;
+  static const profile = Path.profile;
+}

@@ -14,6 +14,9 @@ class PostWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final postId = Faker().guid.guid();
+    getToPost() {
+      Get.toNamed('/post/$postId');
+    }
 
     return AspectRatio(
       aspectRatio: 3 / 4,
@@ -25,7 +28,7 @@ class PostWidget extends StatelessWidget {
               child: Material(
             color: Colors.blue,
             child: InkWell(
-              onTap: () => Get.toNamed('/post/$postId'),
+              onTap: getToPost,
               child: Center(
                 child: Text(
                   postId,
