@@ -5,14 +5,14 @@ enum Paths {
   home,
   explore,
   profile,
-  // myProfile,
+  user,
 }
 
 const Map<Paths, String> Path = {
   Paths.notFound: '/notfound',
   Paths.home: '/home',
   Paths.profile: '/user/:username',
-  // Paths.myProfile: '/user',
+  Paths.user: '/user',
   Paths.explore: '/explore',
 };
 

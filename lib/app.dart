@@ -14,7 +14,7 @@ class BlobgramApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'blobgram',
       debugShowCheckedModeBanner: false,
-      initialRoute: Path[Paths.profile]!,
+      initialRoute: Path[Paths.home]!,
       unknownRoute: GetPage(
           name: Path[Paths.notFound]!, page: () => const NotFoundScreen()),
       getPages: [
