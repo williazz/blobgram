@@ -1,14 +1,25 @@
+// ignore_for_file: constant_identifier_names
+
 enum Paths {
   notFound,
   home,
   explore,
   profile,
+  // myProfile,
 }
 
-// ignore: constant_identifier_names
 const Map<Paths, String> Path = {
   Paths.notFound: '/notfound',
-  Paths.home: '/',
+  Paths.home: '/home',
+  Paths.profile: '/user/:username',
+  // Paths.myProfile: '/user',
   Paths.explore: '/explore',
-  Paths.profile: '/user'
+};
+
+enum Params {
+  username,
+}
+
+const Map<Params, String> Param = {
+  Params.username: 'username',
 };
