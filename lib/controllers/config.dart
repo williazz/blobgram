@@ -1,13 +1,14 @@
-enum Path {
+enum Paths {
   notFound,
   home,
   explore,
   profile,
 }
 
-const Map<Path, String> Paths = {
-  Path.notFound: '/notfound',
-  Path.home: '/',
-  Path.explore: '/explore',
-  Path.profile: '/user'
+// ignore: constant_identifier_names
+const Map<Paths, String> Path = {
+  Paths.notFound: '/notfound',
+  Paths.home: '/',
+  Paths.explore: '/explore',
+  Paths.profile: '/user'
 };
