@@ -8,10 +8,7 @@ class PostWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final username = Faker().internet.userName();
-    getToUser() {
-      Get.toNamed('/user/$username');
-    }
+    final postId = Faker().guid.guid();
 
     return AspectRatio(
       aspectRatio: 3 / 4,
@@ -20,13 +17,17 @@ class PostWidget extends StatelessWidget {
         children: [
           const PostHeader(),
           Expanded(
-              child: GestureDetector(
-            onTap: getToUser,
-            child: Material(
-                color: Colors.blue,
-                child: Center(
-                    child: Text(username,
-                        style: const TextStyle(color: Colors.white)))),
+              child: Material(
+            color: Colors.blue,
+            child: InkWell(
+              onTap: () {},
+              child: Center(
+                child: Text(
+                  postId,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
           )),
         ],
       ),
@@ -39,6 +40,11 @@ class PostHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final username = Faker().internet.userName();
+    getToUser() {
+      Get.toNamed('/user/$username');
+    }
+
     return AspectRatio(
       aspectRatio: 8 / 1,
       child: GestureDetector(
@@ -46,8 +52,8 @@ class PostHeader extends StatelessWidget {
           padding: const EdgeInsets.all(4.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: const [
-              AspectRatio(
+            children: [
+              const AspectRatio(
                 aspectRatio: 1 / 1,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
@@ -56,15 +62,25 @@ class PostHeader extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Material(color: Colors.blue),
+                  padding: const EdgeInsets.all(8.0),
+                  child: Material(
+                      color: Colors.blue,
+                      child: InkWell(
+                        onTap: getToUser,
+                        child: Center(
+                          child: Text(
+                            username,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )),
                 ),
               ),
-              SizedBox(width: 8),
-              Icon(CupertinoIcons.ellipsis, color: Colors.blue),
+              const SizedBox(width: 8),
+              const Icon(CupertinoIcons.ellipsis, color: Colors.blue),
             ],
           ),
         ),
