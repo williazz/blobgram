@@ -25,7 +25,7 @@ class PostWidget extends StatelessWidget {
               child: Material(
             color: Colors.blue,
             child: InkWell(
-              onTap: () {},
+              onTap: () => Get.toNamed('/post/$postId'),
               child: Center(
                 child: Text(
                   postId,
@@ -49,9 +49,9 @@ class PostHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final username = getUsernameFromUrl
-        ? Get.parameters[Param[Params.username]]!
-        : Faker().internet.userName();
+    final username =
+        Get.parameters[Param[Params.username]] ?? Faker().internet.userName();
+
     getToUser() {
       Get.toNamed('/user/$username');
     }

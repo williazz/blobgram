@@ -1,4 +1,4 @@
-import 'package:blobgram/components/feed.dart';
+import 'package:blobgram/components/post.dart';
 import 'package:flutter/material.dart';
 
 class PostScreen extends StatelessWidget {
@@ -8,7 +8,7 @@ class PostScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Post')),
-      body: const FeedWidget(),
+      body: const PostWidget(getUsernameFromUrl: true),
     );
   }
 }

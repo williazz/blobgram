@@ -15,7 +15,7 @@ const Map<Paths, String> Path = {
   Paths.profile: '/user/:username',
   Paths.user: '/user',
   Paths.explore: '/explore',
-  Paths.post: '/post:postId'
+  Paths.post: '/post/:postId'
 };
 
 enum Params {
