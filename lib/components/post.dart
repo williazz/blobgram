@@ -50,7 +50,7 @@ class PostHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final username =
-        Get.parameters[Param[Params.username]] ?? Faker().internet.userName();
+        Get.parameters[Param.username] ?? Faker().internet.userName();
 
     getToUser() {
       Get.toNamed('/user/$username');

@@ -15,13 +15,14 @@ class BlobgramApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'blobgram',
       debugShowCheckedModeBanner: false,
-      initialRoute: Path[Paths.home]!,
-      unknownRoute: GetPage(
-          name: Path[Paths.notFound]!, page: () => const NotFoundScreen()),
+      initialRoute: Path.home,
+      defaultTransition: Transition.rightToLeftWithFade,
+      unknownRoute:
+          GetPage(name: Path.notFound, page: () => const NotFoundScreen()),
       getPages: [
-        GetPage(name: Path[Paths.home]!, page: () => const HomeScreen()),
-        GetPage(name: Path[Paths.profile]!, page: () => ProfileScreen()),
-        GetPage(name: Path[Paths.post]!, page: () => const PostScreen()),
+        GetPage(name: Path.home, page: () => const HomeScreen()),
+        GetPage(name: Path.profile, page: () => ProfileScreen()),
+        GetPage(name: Path.post, page: () => const PostScreen()),
       ],
     );
   }
