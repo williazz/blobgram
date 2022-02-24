@@ -1,3 +1,4 @@
+import 'package:blobgram/components/feed.dart';
 import 'package:blobgram/controllers/config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,10 @@ class ProfileScreen extends StatelessWidget {
             icon: const Icon(CupertinoIcons.ellipsis),
           ),
         ],
+      ),
+      body: const FeedWidget(
+        showStories: false,
+        getUsernameFromUrl: true,
       ),
     );
   }

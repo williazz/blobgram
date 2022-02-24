@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'screens/home.dart';
 import 'screens/not_found.dart';
+import 'screens/post.dart';
 import 'screens/profile.dart';
 
 class BlobgramApp extends StatelessWidget {
@@ -20,6 +21,7 @@ class BlobgramApp extends StatelessWidget {
       getPages: [
         GetPage(name: Path[Paths.home]!, page: () => const HomeScreen()),
         GetPage(name: Path[Paths.profile]!, page: () => ProfileScreen()),
+        GetPage(name: Path[Paths.post]!, page: () => const PostScreen()),
       ],
     );
   }

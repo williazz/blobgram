@@ -6,6 +6,7 @@ enum Paths {
   explore,
   profile,
   user,
+  post,
 }
 
 const Map<Paths, String> Path = {
@@ -14,12 +15,15 @@ const Map<Paths, String> Path = {
   Paths.profile: '/user/:username',
   Paths.user: '/user',
   Paths.explore: '/explore',
+  Paths.post: '/post:postId'
 };
 
 enum Params {
   username,
+  postId,
 }
 
 const Map<Params, String> Param = {
   Params.username: 'username',
+  Params.postId: 'postId',
 };

@@ -1,10 +1,15 @@
+import 'package:blobgram/controllers/config.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PostWidget extends StatelessWidget {
-  const PostWidget({Key? key}) : super(key: key);
+  final bool getUsernameFromUrl;
+  const PostWidget({
+    Key? key,
+    this.getUsernameFromUrl = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,7 @@ class PostWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const PostHeader(),
+          PostHeader(getUsernameFromUrl: getUsernameFromUrl),
           Expanded(
               child: Material(
             color: Colors.blue,
@@ -36,11 +41,17 @@ class PostWidget extends StatelessWidget {
 }
 
 class PostHeader extends StatelessWidget {
-  const PostHeader({Key? key}) : super(key: key);
+  final bool getUsernameFromUrl;
+  const PostHeader({
+    Key? key,
+    this.getUsernameFromUrl = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final username = Faker().internet.userName();
+    final username = getUsernameFromUrl
+        ? Get.parameters[Param[Params.username]]!
+        : Faker().internet.userName();
     getToUser() {
       Get.toNamed('/user/$username');
     }
