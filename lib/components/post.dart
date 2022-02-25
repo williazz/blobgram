@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,10 @@ class PostWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    getToPost() {}
+    getToPost() {
+      context.router.pushNamed('/post');
+    }
+
     return AspectRatio(
       aspectRatio: 3 / 4,
       child: Column(
