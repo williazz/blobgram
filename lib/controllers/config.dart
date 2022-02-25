@@ -1,29 +1,23 @@
-// ignore_for_file: constant_identifier_names
+import 'package:flutter/foundation.dart';
 
-enum Paths {
-  notFound,
-  home,
-  explore,
-  profile,
-  user,
-  post,
+@immutable
+class Path {
+  static const notFound = '/notfound';
+  static const home = '/home';
+  static const profile = '/user/:username';
+  static const user = '/user';
+  static const explore = '/explore';
+  static const post = '/post/:postId';
 }
 
-const Map<Paths, String> Path = {
-  Paths.notFound: '/notfound',
-  Paths.home: '/home',
-  Paths.profile: '/user/:username',
-  Paths.user: '/user',
-  Paths.explore: '/explore',
-  Paths.post: '/post/:postId'
-};
-
-enum Params {
-  username,
-  postId,
+@immutable
+class Param {
+  static const username = 'username';
+  static const postId = 'postId';
 }
 
-const Map<Params, String> Param = {
-  Params.username: 'username',
-  Params.postId: 'postId',
-};
+@immutable
+class NavigationId {
+  static const home = Path.home;
+  static const profile = Path.profile;
+}

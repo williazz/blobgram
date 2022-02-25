@@ -10,6 +10,26 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: _appBar(context),
       body: const FeedWidget(),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: [
+          BottomNavigationBarItem(
+            label: 'Home',
+            icon: IconButton(
+              onPressed: () {},
+              icon: const Icon(CupertinoIcons.home),
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: 'Profile',
+            icon: IconButton(
+              onPressed: () {},
+              icon: const Icon(CupertinoIcons.profile_circled),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

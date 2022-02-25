@@ -1,3 +1,3 @@
 # Blobgram
 
-A product demo of client side routing with deep nesting and dynamic links, implemented with blobs.
+A product demo of nested routing and deep linking, made with blobs.

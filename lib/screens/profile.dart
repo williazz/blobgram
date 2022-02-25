@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
-  final username = Get.parameters[Param[Params.username]];
+  final username = Get.parameters[Param.username];
 
   @override
   Widget build(BuildContext context) {

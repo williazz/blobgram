@@ -1,5 +1,5 @@
 name: blobgram
-description: A project demo of client side routing with deep nesting and dynamic links
+description: A product demo of nested routing and deep linking, made with blobs.
 
 publish_to: 'none'
 version: 1.0.0+1
