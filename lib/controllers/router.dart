@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:blobgram/screens/home.dart';
-import 'package:blobgram/screens/profile.dart';
+import 'package:blobgram/screens/feed.dart';
 
 import 'config.dart';
 
@@ -9,12 +8,9 @@ import 'config.dart';
   routes: <AutoRoute>[
     AutoRoute(
       initial: true,
-      path: Path.home,
-      page: HomeScreen,
-    ),
-    AutoRoute(
-      path: Path.profile,
-      page: ProfileScreen,
+      path: Path.feed,
+      name: 'Feed',
+      page: FeedScreen,
     ),
   ],
 )

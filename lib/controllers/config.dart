@@ -2,11 +2,14 @@ import 'package:flutter/foundation.dart';
 
 @immutable
 class Path {
+  // // tabs
+  // static const home = '/home';
+  // static const you = '/you';
+
+  // pages
   static const notFound = '/notfound';
-  static const home = '/home';
-  static const profile = '/user/:username';
-  static const user = '/user';
-  static const explore = '/explore';
+  static const feed = '/feed';
+  static const user = '/user/:username';
   static const post = '/post/:postId';
 }
 
@@ -14,10 +17,4 @@ class Path {
 class Param {
   static const username = 'username';
   static const postId = 'postId';
-}
-
-@immutable
-class NavigationId {
-  static const home = Path.home;
-  static const profile = Path.profile;
 }

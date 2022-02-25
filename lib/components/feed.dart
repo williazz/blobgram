@@ -5,12 +5,7 @@ import 'stories.dart';
 
 class FeedWidget extends StatelessWidget {
   final bool showStories;
-  final bool getUsernameFromUrl;
-  const FeedWidget({
-    Key? key,
-    this.showStories = true,
-    this.getUsernameFromUrl = false,
-  }) : super(key: key);
+  const FeedWidget({Key? key, this.showStories = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +17,7 @@ class FeedWidget extends StatelessWidget {
       },
       itemBuilder: (context, index) {
         if (showStories && index == 0) return const StoriesPanelWidget();
-        return PostWidget(getUsernameFromUrl: getUsernameFromUrl);
+        return const PostWidget();
       },
     );
   }

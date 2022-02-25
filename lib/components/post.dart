@@ -3,11 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PostWidget extends StatelessWidget {
-  final bool getUsernameFromUrl;
-  const PostWidget({
-    Key? key,
-    this.getUsernameFromUrl = false,
-  }) : super(key: key);
+  const PostWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +15,7 @@ class PostWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          PostHeader(getUsernameFromUrl: getUsernameFromUrl),
+          const PostHeader(),
           Expanded(
               child: Material(
             color: Colors.blue,
@@ -40,11 +36,7 @@ class PostWidget extends StatelessWidget {
 }
 
 class PostHeader extends StatelessWidget {
-  final bool getUsernameFromUrl;
-  const PostHeader({
-    Key? key,
-    this.getUsernameFromUrl = false,
-  }) : super(key: key);
+  const PostHeader({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

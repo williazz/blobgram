@@ -10,64 +10,35 @@
 //
 // ignore_for_file: type=lint
 
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:flutter/material.dart' as _i4;
+import 'package:auto_route/auto_route.dart' as _i2;
+import 'package:flutter/material.dart' as _i3;
 
-import '../screens/home.dart' as _i1;
-import '../screens/profile.dart' as _i2;
+import '../screens/feed.dart' as _i1;
 
-class AppRouter extends _i3.RootStackRouter {
-  AppRouter([_i4.GlobalKey<_i4.NavigatorState>? navigatorKey])
+class AppRouter extends _i2.RootStackRouter {
+  AppRouter([_i3.GlobalKey<_i3.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i3.PageFactory> pagesMap = {
-    HomeScreen.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.HomeScreen());
-    },
-    ProfileScreen.name: (routeData) {
-      final args = routeData.argsAs<ProfileScreenArgs>(
-          orElse: () => const ProfileScreenArgs());
-      return _i3.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i2.ProfileScreen(key: args.key));
+  final Map<String, _i2.PageFactory> pagesMap = {
+    Feed.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.FeedScreen());
     }
   };
 
   @override
-  List<_i3.RouteConfig> get routes => [
-        _i3.RouteConfig('/#redirect',
-            path: '/', redirectTo: '/home', fullMatch: true),
-        _i3.RouteConfig(HomeScreen.name, path: '/home'),
-        _i3.RouteConfig(ProfileScreen.name, path: '/user/:username')
+  List<_i2.RouteConfig> get routes => [
+        _i2.RouteConfig('/#redirect',
+            path: '/', redirectTo: '/feed', fullMatch: true),
+        _i2.RouteConfig(Feed.name, path: '/feed')
       ];
 }
 
 /// generated route for
-/// [_i1.HomeScreen]
-class HomeScreen extends _i3.PageRouteInfo<void> {
-  const HomeScreen() : super(HomeScreen.name, path: '/home');
+/// [_i1.FeedScreen]
+class Feed extends _i2.PageRouteInfo<void> {
+  const Feed() : super(Feed.name, path: '/feed');
 
-  static const String name = 'HomeScreen';
-}
-
-/// generated route for
-/// [_i2.ProfileScreen]
-class ProfileScreen extends _i3.PageRouteInfo<ProfileScreenArgs> {
-  ProfileScreen({_i4.Key? key})
-      : super(ProfileScreen.name,
-            path: '/user/:username', args: ProfileScreenArgs(key: key));
-
-  static const String name = 'ProfileScreen';
-}
-
-class ProfileScreenArgs {
-  const ProfileScreenArgs({this.key});
-
-  final _i4.Key? key;
-
-  @override
-  String toString() {
-    return 'ProfileScreenArgs{key: $key}';
-  }
+  static const String name = 'Feed';
 }
