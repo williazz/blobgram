@@ -1,3 +1,4 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
 import 'post.dart';
@@ -17,7 +18,8 @@ class FeedWidget extends StatelessWidget {
       },
       itemBuilder: (context, index) {
         if (showStories && index == 0) return const StoriesPanelWidget();
-        return const PostWidget();
+        final postId = Faker().guid.guid();
+        return PostWidget(postId: postId);
       },
     );
   }

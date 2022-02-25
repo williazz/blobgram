@@ -3,13 +3,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PostWidget extends StatelessWidget {
-  const PostWidget({Key? key}) : super(key: key);
+  final String postId;
+  const PostWidget({
+    Key? key,
+    required this.postId,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final postId = Faker().guid.guid();
     getToPost() {}
-
     return AspectRatio(
       aspectRatio: 3 / 4,
       child: Column(
