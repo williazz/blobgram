@@ -1,18 +1,16 @@
 import 'package:blobgram/components/feed.dart';
-import 'package:blobgram/controllers/config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
-  ProfileScreen({Key? key}) : super(key: key);
-  final username = Get.parameters[Param.username];
+  const ProfileScreen({Key? key}) : super(key: key);
+  final username = 'username';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(username!),
+        title: Text(username),
         actions: [
           IconButton(
             onPressed: () {},

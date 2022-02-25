@@ -6,5 +6,5 @@ import 'app.dart';
 
 void main() async {
   if (kIsWeb) setPathUrlStrategy();
-  runApp(const BlobgramApp());
+  runApp(BlobgramApp());
 }

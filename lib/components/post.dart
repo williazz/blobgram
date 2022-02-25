@@ -1,8 +1,6 @@
-import 'package:blobgram/controllers/config.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class PostWidget extends StatelessWidget {
   final bool getUsernameFromUrl;
@@ -14,9 +12,7 @@ class PostWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final postId = Faker().guid.guid();
-    getToPost() {
-      Get.toNamed('/post/$postId');
-    }
+    getToPost() {}
 
     return AspectRatio(
       aspectRatio: 3 / 4,
@@ -52,12 +48,9 @@ class PostHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final username =
-        Get.parameters[Param.username] ?? Faker().internet.userName();
+    final username = Faker().internet.userName();
 
-    getToUser() {
-      Get.toNamed('/user/$username');
-    }
+    getToUser() {}
 
     return AspectRatio(
       aspectRatio: 8 / 1,
