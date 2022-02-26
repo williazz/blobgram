@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:blobgram/pages/feed.dart';
 import 'package:blobgram/home.dart';
+import 'package:blobgram/pages/not_found.dart';
 import 'package:blobgram/pages/post.dart';
 import 'package:blobgram/pages/user.dart';
 import 'package:blobgram/pages/you.dart';
@@ -24,6 +25,7 @@ import 'config.dart';
               AutoRoute(initial: true, path: '', page: FeedPage),
               AutoRoute(path: PagePath.post, page: PostPage),
               AutoRoute(path: PagePath.user, page: UserPage),
+              AutoRoute(path: '*', page: NotFoundPage),
             ]),
         AutoRoute(
             initial: false,
@@ -34,9 +36,11 @@ import 'config.dart';
               AutoRoute(initial: true, path: '', page: YouPage),
               AutoRoute(path: PagePath.post, page: PostPage),
               AutoRoute(path: PagePath.user, page: UserPage),
+              AutoRoute(path: '*', page: NotFoundPage),
             ]),
       ],
     ),
+    AutoRoute(path: '*', page: NotFoundPage),
   ],
 )
 class $AppRouter {}

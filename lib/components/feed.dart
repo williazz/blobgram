@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,13 @@ class FeedWidget extends StatelessWidget {
       },
       itemBuilder: (context, index) {
         if (showStories && index == 0) return const StoriesPanelWidget();
+        if (index == 1) {
+          return ElevatedButton(
+              onPressed: () {
+                AutoRouter.of(context).pushNamed('error');
+              },
+              child: const Text('Go to error page'));
+        }
         final postId = Faker().food.restaurant();
         return PostWidget(postId: postId);
       },
