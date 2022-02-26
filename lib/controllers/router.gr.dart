@@ -87,7 +87,12 @@ class AppRouter extends _i2.RootStackRouter {
               path: 'you',
               parent: HomeRoute.name,
               children: [
-                _i2.RouteConfig(YouRoute.name, path: '', parent: YouRouter.name)
+                _i2.RouteConfig(YouRoute.name,
+                    path: '', parent: YouRouter.name),
+                _i2.RouteConfig(PostRoute.name,
+                    path: 'post/:postId', parent: YouRouter.name),
+                _i2.RouteConfig(UserRoute.name,
+                    path: 'user/:username', parent: YouRouter.name)
               ])
         ])
       ];

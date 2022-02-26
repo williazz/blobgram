@@ -14,7 +14,6 @@ abstract class TabPath {
 
 @immutable
 abstract class PagePath {
-  static const feed = 'feed';
   static const user = 'user/:username';
   static const post = 'post/:postId';
 }

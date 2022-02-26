@@ -32,6 +32,8 @@ import 'config.dart';
             page: EmptyRouterPage,
             children: [
               AutoRoute(initial: true, path: '', page: YouPage),
+              AutoRoute(path: PagePath.post, page: PostPage),
+              AutoRoute(path: PagePath.user, page: UserPage),
             ]),
       ],
     ),

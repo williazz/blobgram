@@ -14,7 +14,7 @@ class PostWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getToPost() {
-      context.router.push(PostRoute(postId: postId));
+      AutoRouter.of(context).push(PostRoute(postId: postId));
     }
 
     return AspectRatio(
@@ -51,7 +51,7 @@ class PostHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final username = Faker().internet.userName();
     getToUser() {
-      context.router.push(UserRoute(username: username));
+      AutoRouter.of(context).push(UserRoute(username: username));
     }
 
     return AspectRatio(
