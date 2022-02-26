@@ -55,7 +55,7 @@ class AppRouter extends _i2.RootStackRouter {
                 _i2.RouteConfig(FeedRoute.name,
                     path: '', parent: FeedRouter.name),
                 _i2.RouteConfig(PostRoute.name,
-                    path: ':postId', parent: FeedRouter.name)
+                    path: 'post/:postId', parent: FeedRouter.name)
               ])
         ])
       ];
@@ -92,7 +92,7 @@ class FeedRoute extends _i2.PageRouteInfo<void> {
 class PostRoute extends _i2.PageRouteInfo<PostRouteArgs> {
   PostRoute({_i5.Key? key, required String postId})
       : super(PostRoute.name,
-            path: ':postId',
+            path: 'post/:postId',
             args: PostRouteArgs(key: key, postId: postId),
             rawPathParams: {'postId': postId});
 

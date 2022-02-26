@@ -21,7 +21,7 @@ class FeedWidget extends StatelessWidget {
       },
       itemBuilder: (context, index) {
         if (showStories && index == 0) return const StoriesPanelWidget();
-        final postId = Faker().guid.guid();
+        final postId = Faker().food.restaurant();
         return PostWidget(postId: postId);
       },
     );

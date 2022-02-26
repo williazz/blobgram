@@ -23,7 +23,7 @@ import 'config.dart';
               page: FeedPage,
             ),
             AutoRoute(
-              path: Param.postId,
+              path: PagePath.post,
               page: PostPage,
             ),
           ],
