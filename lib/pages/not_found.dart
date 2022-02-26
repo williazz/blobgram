@@ -13,13 +13,17 @@ class NotFoundPage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () => _home(router),
-          child: const Text('Go home'),
+          child: const Text('Go back'),
         ),
       ),
     );
   }
 
   _home(StackRouter router) {
-    router.replaceAll([const HomeRoute()]);
+    if (router.canPopSelfOrChildren) {
+      router.pop();
+    } else {
+      router.replaceAll([const HomeRoute()]);
+    }
   }
 }
