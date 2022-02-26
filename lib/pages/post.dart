@@ -1,19 +1,20 @@
+import 'package:auto_route/annotations.dart';
 import 'package:blobgram/components/post.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PostScreen extends StatelessWidget {
-  // final String postId;
-  const PostScreen({
+class PostPage extends StatelessWidget {
+  final String postId;
+  const PostPage({
     Key? key,
-    // this.postId = 'blankPost',
+    @PathParam() required this.postId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: const PostWidget(postId: 'faker'),
+      body: PostWidget(postId: postId),
     );
   }
 

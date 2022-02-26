@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:blobgram/controllers/router.gr.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class PostWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getToPost() {
-      context.router.pushNamed('/post');
+      context.router.push(PostRoute(postId: postId));
     }
 
     return AspectRatio(

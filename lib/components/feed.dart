@@ -6,7 +6,10 @@ import 'stories.dart';
 
 class FeedWidget extends StatelessWidget {
   final bool showStories;
-  const FeedWidget({Key? key, this.showStories = true}) : super(key: key);
+  const FeedWidget({
+    Key? key,
+    this.showStories = true,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

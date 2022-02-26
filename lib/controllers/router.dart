@@ -1,22 +1,34 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:blobgram/screens/feed.dart';
-import 'package:blobgram/screens/post.dart';
+import 'package:blobgram/pages/feed.dart';
+import 'package:blobgram/home.dart';
+import 'package:blobgram/pages/post.dart';
 
 import 'config.dart';
 
 @MaterialAutoRouter(
-  replaceInRouteName: 'Screen,Route',
+  replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(
       initial: true,
-      path: Path.feed,
-      name: 'Feed',
-      page: FeedScreen,
-    ),
-    AutoRoute(
-      path: '/post',
-      name: 'Post',
-      page: PostScreen,
+      path: '/',
+      page: HomePage,
+      children: [
+        AutoRoute(
+          path: TabPath.feed,
+          name: RouterName.feed,
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(
+              path: '',
+              page: FeedPage,
+            ),
+            AutoRoute(
+              path: Param.postId,
+              page: PostPage,
+            ),
+          ],
+        ),
+      ],
     ),
   ],
 )
