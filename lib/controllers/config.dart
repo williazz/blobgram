@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 @immutable
 abstract class RouterName {
   static const feed = 'FeedRouter';
+  static const you = 'YouRouter';
 }
 
 @immutable
