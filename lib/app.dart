@@ -1,29 +1,17 @@
-import 'package:blobgram/controllers/config.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'screens/home.dart';
-import 'screens/not_found.dart';
-import 'screens/post.dart';
-import 'screens/profile.dart';
+import 'controllers/router.gr.dart';
 
 class BlobgramApp extends StatelessWidget {
-  const BlobgramApp({Key? key}) : super(key: key);
+  BlobgramApp({Key? key}) : super(key: key);
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'blobgram',
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      initialRoute: Path.home,
-      defaultTransition: Transition.rightToLeftWithFade,
-      unknownRoute:
-          GetPage(name: Path.notFound, page: () => const NotFoundScreen()),
-      getPages: [
-        GetPage(name: Path.home, page: () => const HomeScreen()),
-        GetPage(name: Path.profile, page: () => ProfileScreen()),
-        GetPage(name: Path.post, page: () => const PostScreen()),
-      ],
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

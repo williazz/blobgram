@@ -1,21 +1,20 @@
-import 'package:blobgram/controllers/config.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:blobgram/controllers/router.gr.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class PostWidget extends StatelessWidget {
-  final bool getUsernameFromUrl;
+  final String postId;
   const PostWidget({
     Key? key,
-    this.getUsernameFromUrl = false,
+    required this.postId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final postId = Faker().guid.guid();
     getToPost() {
-      Get.toNamed('/post/$postId');
+      AutoRouter.of(context).push(PostRoute(postId: postId));
     }
 
     return AspectRatio(
@@ -23,7 +22,7 @@ class PostWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          PostHeader(getUsernameFromUrl: getUsernameFromUrl),
+          const PostHeader(),
           Expanded(
               child: Material(
             color: Colors.blue,
@@ -44,19 +43,15 @@ class PostWidget extends StatelessWidget {
 }
 
 class PostHeader extends StatelessWidget {
-  final bool getUsernameFromUrl;
   const PostHeader({
     Key? key,
-    this.getUsernameFromUrl = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final username =
-        Get.parameters[Param.username] ?? Faker().internet.userName();
-
+    final username = Faker().internet.userName();
     getToUser() {
-      Get.toNamed('/user/$username');
+      AutoRouter.of(context).push(UserRoute(username: username));
     }
 
     return AspectRatio(

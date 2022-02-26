@@ -1,23 +1,19 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-class Path {
-  static const notFound = '/notfound';
-  static const home = '/home';
-  static const profile = '/user/:username';
-  static const user = '/user';
-  static const explore = '/explore';
-  static const post = '/post/:postId';
+abstract class RouterName {
+  static const feed = 'FeedRouter';
+  static const you = 'YouRouter';
 }
 
 @immutable
-class Param {
-  static const username = 'username';
-  static const postId = 'postId';
+abstract class TabPath {
+  static const feed = 'feed';
+  static const you = 'you';
 }
 
 @immutable
-class NavigationId {
-  static const home = Path.home;
-  static const profile = Path.profile;
+abstract class PagePath {
+  static const user = 'user/:username';
+  static const post = 'post/:postId';
 }

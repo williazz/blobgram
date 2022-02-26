@@ -1,3 +1,4 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
 import 'post.dart';
@@ -5,11 +6,9 @@ import 'stories.dart';
 
 class FeedWidget extends StatelessWidget {
   final bool showStories;
-  final bool getUsernameFromUrl;
   const FeedWidget({
     Key? key,
     this.showStories = true,
-    this.getUsernameFromUrl = false,
   }) : super(key: key);
 
   @override
@@ -22,7 +21,8 @@ class FeedWidget extends StatelessWidget {
       },
       itemBuilder: (context, index) {
         if (showStories && index == 0) return const StoriesPanelWidget();
-        return PostWidget(getUsernameFromUrl: getUsernameFromUrl);
+        final postId = Faker().food.restaurant();
+        return PostWidget(postId: postId);
       },
     );
   }
