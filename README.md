@@ -1,6 +1,6 @@
 # Blobgram
 
-A product demo of client side routing, including: nested routing, deep linking, bottom navigation, and multiple navigators. 
+A product demo of client side routing, including nested routing, deep linking, bottom navigation, and multiple navigators. 
 
 # Notes 
 
