@@ -7,9 +7,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoTabsScaffold(
-      appBarBuilder: (_, __) => AppBar(title: const Text('Home')),
-      routes: const [
+    return const AutoTabsScaffold(
+      routes: [
         FeedRouter(),
       ],
     );

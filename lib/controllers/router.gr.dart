@@ -11,14 +11,15 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:flutter/material.dart' as _i5;
+import 'package:flutter/material.dart' as _i6;
 
 import '../home.dart' as _i1;
 import '../pages/feed.dart' as _i3;
 import '../pages/post.dart' as _i4;
+import '../pages/user.dart' as _i5;
 
 class AppRouter extends _i2.RootStackRouter {
-  AppRouter([_i5.GlobalKey<_i5.NavigatorState>? navigatorKey])
+  AppRouter([_i6.GlobalKey<_i6.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
@@ -42,6 +43,15 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i4.PostPage(key: args.key, postId: args.postId));
+    },
+    UserRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<UserRouteArgs>(
+          orElse: () =>
+              UserRouteArgs(username: pathParams.getString('username')));
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i5.UserPage(key: args.key, username: args.username));
     }
   };
 
@@ -55,7 +65,9 @@ class AppRouter extends _i2.RootStackRouter {
                 _i2.RouteConfig(FeedRoute.name,
                     path: '', parent: FeedRouter.name),
                 _i2.RouteConfig(PostRoute.name,
-                    path: 'post/:postId', parent: FeedRouter.name)
+                    path: 'post/:postId', parent: FeedRouter.name),
+                _i2.RouteConfig(UserRoute.name,
+                    path: 'user/:username', parent: FeedRouter.name)
               ])
         ])
       ];
@@ -90,7 +102,7 @@ class FeedRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i4.PostPage]
 class PostRoute extends _i2.PageRouteInfo<PostRouteArgs> {
-  PostRoute({_i5.Key? key, required String postId})
+  PostRoute({_i6.Key? key, required String postId})
       : super(PostRoute.name,
             path: 'post/:postId',
             args: PostRouteArgs(key: key, postId: postId),
@@ -102,12 +114,37 @@ class PostRoute extends _i2.PageRouteInfo<PostRouteArgs> {
 class PostRouteArgs {
   const PostRouteArgs({this.key, required this.postId});
 
-  final _i5.Key? key;
+  final _i6.Key? key;
 
   final String postId;
 
   @override
   String toString() {
     return 'PostRouteArgs{key: $key, postId: $postId}';
+  }
+}
+
+/// generated route for
+/// [_i5.UserPage]
+class UserRoute extends _i2.PageRouteInfo<UserRouteArgs> {
+  UserRoute({_i6.Key? key, required String username})
+      : super(UserRoute.name,
+            path: 'user/:username',
+            args: UserRouteArgs(key: key, username: username),
+            rawPathParams: {'username': username});
+
+  static const String name = 'UserRoute';
+}
+
+class UserRouteArgs {
+  const UserRouteArgs({this.key, required this.username});
+
+  final _i6.Key? key;
+
+  final String username;
+
+  @override
+  String toString() {
+    return 'UserRouteArgs{key: $key, username: $username}';
   }
 }

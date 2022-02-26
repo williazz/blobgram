@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:blobgram/pages/feed.dart';
 import 'package:blobgram/home.dart';
 import 'package:blobgram/pages/post.dart';
+import 'package:blobgram/pages/user.dart';
 
 import 'config.dart';
 
@@ -25,6 +26,10 @@ import 'config.dart';
             AutoRoute(
               path: PagePath.post,
               page: PostPage,
+            ),
+            AutoRoute(
+              path: PagePath.user,
+              page: UserPage,
             ),
           ],
         ),
