@@ -11,6 +11,7 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i2;
+import 'package:flutter/cupertino.dart' as _i8;
 import 'package:flutter/material.dart' as _i7;
 
 import '../home.dart' as _i1;
@@ -136,7 +137,7 @@ class FeedRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i4.PostPage]
 class PostRoute extends _i2.PageRouteInfo<PostRouteArgs> {
-  PostRoute({_i7.Key? key, required String postId})
+  PostRoute({_i8.Key? key, required String postId})
       : super(PostRoute.name,
             path: 'post/:postId',
             args: PostRouteArgs(key: key, postId: postId),
@@ -148,7 +149,7 @@ class PostRoute extends _i2.PageRouteInfo<PostRouteArgs> {
 class PostRouteArgs {
   const PostRouteArgs({this.key, required this.postId});
 
-  final _i7.Key? key;
+  final _i8.Key? key;
 
   final String postId;
 
@@ -161,7 +162,7 @@ class PostRouteArgs {
 /// generated route for
 /// [_i5.UserPage]
 class UserRoute extends _i2.PageRouteInfo<UserRouteArgs> {
-  UserRoute({_i7.Key? key, required String username})
+  UserRoute({_i8.Key? key, required String username})
       : super(UserRoute.name,
             path: 'user/:username',
             args: UserRouteArgs(key: key, username: username),
@@ -173,7 +174,7 @@ class UserRoute extends _i2.PageRouteInfo<UserRouteArgs> {
 class UserRouteArgs {
   const UserRouteArgs({this.key, required this.username});
 
-  final _i7.Key? key;
+  final _i8.Key? key;
 
   final String username;
 

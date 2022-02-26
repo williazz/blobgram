@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
+      backgroundColor: Colors.blue,
       routes: const [
         FeedRouter(),
         YouRouter(),
@@ -16,7 +17,18 @@ class HomePage extends StatelessWidget {
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
             currentIndex: tabsRouter.activeIndex,
-            onTap: tabsRouter.setActiveIndex,
+            onTap: (int index) {
+              if (index == tabsRouter.activeIndex) {
+                final replaceAll = AutoRouter.of(context).replaceAll;
+                if (index == 0) {
+                  replaceAll([const FeedRoute()]);
+                } else if (index == 1) {
+                  replaceAll([const YouRoute()]);
+                }
+              } else {
+                tabsRouter.setActiveIndex(index);
+              }
+            },
             showSelectedLabels: false,
             showUnselectedLabels: false,
             items: const [
