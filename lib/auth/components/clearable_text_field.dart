@@ -1,19 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EmailField extends StatelessWidget {
+class ClearableTextField extends StatelessWidget {
   final TextEditingController controller;
-  const EmailField({
+  final String label;
+  final String autofillHint;
+  const ClearableTextField({
     Key? key,
     required this.controller,
+    required this.label,
+    required this.autofillHint,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      autofillHints: const [AutofillHints.email],
+      autofillHints: [autofillHint],
       decoration: InputDecoration(
-          label: const Text('email'),
+          label: Text(label),
           suffixIcon: IconButton(
               onPressed: () {
                 controller.clear();

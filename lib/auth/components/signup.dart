@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:blobgram/auth/components/name.dart';
+
 import 'package:blobgram/controllers/router.gr.dart';
 import 'package:flutter/material.dart';
 
-import 'email.dart';
-import 'password.dart';
+import 'clearable_text_field.dart';
+import 'password_field.dart';
 
 class SignUpWidget extends StatelessWidget {
   const SignUpWidget({Key? key}) : super(key: key);
@@ -24,10 +24,16 @@ class SignUpWidget extends StatelessWidget {
             children: [
               Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: NameField(controller: nameController)),
+                  child: ClearableTextField(
+                      label: 'name',
+                      autofillHint: AutofillHints.name,
+                      controller: nameController)),
               Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: EmailField(controller: emailController)),
+                  child: ClearableTextField(
+                      label: 'email',
+                      autofillHint: AutofillHints.email,
+                      controller: emailController)),
               Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: PasswordField(controller: passwordController)),

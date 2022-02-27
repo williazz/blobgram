@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:blobgram/auth/components/email.dart';
-import 'package:blobgram/auth/components/password.dart';
+import 'package:blobgram/auth/components/clearable_text_field.dart';
+import 'package:blobgram/auth/components/password_field.dart';
 import 'package:blobgram/controllers/router.gr.dart';
 import 'package:flutter/material.dart';
 
@@ -21,14 +21,20 @@ class LoginForm extends StatelessWidget {
             children: [
               Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: EmailField(controller: emailController)),
+                  child: ClearableTextField(
+                      label: 'email',
+                      autofillHint: AutofillHints.email,
+                      controller: emailController)),
               Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(children: [
                     PasswordField(controller: passwordController),
                     Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            AutoRouter.of(context).push(LinkSentRoute(
+                                email: 'forgotpassword@example.com'));
+                          },
                           child: const Text('Forgot Password?')),
                     ])
                   ])),
