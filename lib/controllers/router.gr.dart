@@ -10,47 +10,54 @@
 //
 // ignore_for_file: type=lint
 
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:flutter/material.dart' as _i8;
+import 'package:auto_route/auto_route.dart' as _i2;
+import 'package:flutter/material.dart' as _i9;
 
+import '../auth/pages/login.dart' as _i8;
 import '../home.dart' as _i1;
 import '../pages/feed.dart' as _i4;
-import '../pages/not_found.dart' as _i2;
+import '../pages/not_found.dart' as _i3;
 import '../pages/post.dart' as _i5;
 import '../pages/user.dart' as _i6;
 import '../pages/you.dart' as _i7;
 
-class AppRouter extends _i3.RootStackRouter {
-  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
+class AppRouter extends _i2.RootStackRouter {
+  AppRouter([_i9.GlobalKey<_i9.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i3.PageFactory> pagesMap = {
+  final Map<String, _i2.PageFactory> pagesMap = {
     HomeRoute.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
+      return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.HomePage());
     },
+    AuthRouter.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: const _i2.EmptyRouterPage(),
+          fullscreenDialog: true);
+    },
     NotFoundRoute.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.NotFoundPage());
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i3.NotFoundPage());
     },
     FeedRouter.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.EmptyRouterPage());
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i2.EmptyRouterPage());
     },
     YouRouter.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.EmptyRouterPage());
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i2.EmptyRouterPage());
     },
     FeedRoute.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
+      return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i4.FeedPage());
     },
     PostRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<PostRouteArgs>(
           orElse: () => PostRouteArgs(postId: pathParams.getString('postId')));
-      return _i3.MaterialPageX<dynamic>(
+      return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i5.PostPage(key: args.key, postId: args.postId));
     },
@@ -59,85 +66,111 @@ class AppRouter extends _i3.RootStackRouter {
       final args = routeData.argsAs<UserRouteArgs>(
           orElse: () =>
               UserRouteArgs(username: pathParams.getString('username')));
-      return _i3.MaterialPageX<dynamic>(
+      return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i6.UserPage(key: args.key, username: args.username));
     },
     YouRoute.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
+      return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i7.YouPage());
+    },
+    LoginRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: const _i8.LoginPage(),
+          fullscreenDialog: true);
     }
   };
 
   @override
-  List<_i3.RouteConfig> get routes => [
-        _i3.RouteConfig(HomeRoute.name, path: '/', children: [
-          _i3.RouteConfig('#redirect',
+  List<_i2.RouteConfig> get routes => [
+        _i2.RouteConfig(HomeRoute.name, path: '/', children: [
+          _i2.RouteConfig('#redirect',
               path: '',
               parent: HomeRoute.name,
               redirectTo: 'feed',
               fullMatch: true),
-          _i3.RouteConfig(FeedRouter.name,
+          _i2.RouteConfig(FeedRouter.name,
               path: 'feed',
               parent: HomeRoute.name,
               children: [
-                _i3.RouteConfig(FeedRoute.name,
+                _i2.RouteConfig(FeedRoute.name,
                     path: '', parent: FeedRouter.name),
-                _i3.RouteConfig(PostRoute.name,
+                _i2.RouteConfig(PostRoute.name,
                     path: 'post/:postId', parent: FeedRouter.name),
-                _i3.RouteConfig(UserRoute.name,
+                _i2.RouteConfig(UserRoute.name,
                     path: 'user/:username', parent: FeedRouter.name),
-                _i3.RouteConfig(NotFoundRoute.name,
+                _i2.RouteConfig(NotFoundRoute.name,
                     path: '*', parent: FeedRouter.name)
               ]),
-          _i3.RouteConfig(YouRouter.name,
+          _i2.RouteConfig(YouRouter.name,
               path: 'you',
               parent: HomeRoute.name,
               children: [
-                _i3.RouteConfig(YouRoute.name,
+                _i2.RouteConfig(YouRoute.name,
                     path: '', parent: YouRouter.name),
-                _i3.RouteConfig(PostRoute.name,
+                _i2.RouteConfig(PostRoute.name,
                     path: 'post/:postId', parent: YouRouter.name),
-                _i3.RouteConfig(UserRoute.name,
+                _i2.RouteConfig(UserRoute.name,
                     path: 'user/:username', parent: YouRouter.name),
-                _i3.RouteConfig(NotFoundRoute.name,
+                _i2.RouteConfig(NotFoundRoute.name,
                     path: '*', parent: YouRouter.name)
               ])
         ]),
-        _i3.RouteConfig(NotFoundRoute.name, path: '*')
+        _i2.RouteConfig(AuthRouter.name, path: '/auth', children: [
+          _i2.RouteConfig('#redirect',
+              path: '',
+              parent: AuthRouter.name,
+              redirectTo: 'login',
+              fullMatch: true),
+          _i2.RouteConfig(LoginRoute.name,
+              path: 'login', parent: AuthRouter.name),
+          _i2.RouteConfig(NotFoundRoute.name,
+              path: '*', parent: AuthRouter.name)
+        ]),
+        _i2.RouteConfig(NotFoundRoute.name, path: '*')
       ];
 }
 
 /// generated route for
 /// [_i1.HomePage]
-class HomeRoute extends _i3.PageRouteInfo<void> {
-  const HomeRoute({List<_i3.PageRouteInfo>? children})
+class HomeRoute extends _i2.PageRouteInfo<void> {
+  const HomeRoute({List<_i2.PageRouteInfo>? children})
       : super(HomeRoute.name, path: '/', initialChildren: children);
 
   static const String name = 'HomeRoute';
 }
 
 /// generated route for
-/// [_i2.NotFoundPage]
-class NotFoundRoute extends _i3.PageRouteInfo<void> {
+/// [_i2.EmptyRouterPage]
+class AuthRouter extends _i2.PageRouteInfo<void> {
+  const AuthRouter({List<_i2.PageRouteInfo>? children})
+      : super(AuthRouter.name, path: '/auth', initialChildren: children);
+
+  static const String name = 'AuthRouter';
+}
+
+/// generated route for
+/// [_i3.NotFoundPage]
+class NotFoundRoute extends _i2.PageRouteInfo<void> {
   const NotFoundRoute() : super(NotFoundRoute.name, path: '*');
 
   static const String name = 'NotFoundRoute';
 }
 
 /// generated route for
-/// [_i3.EmptyRouterPage]
-class FeedRouter extends _i3.PageRouteInfo<void> {
-  const FeedRouter({List<_i3.PageRouteInfo>? children})
+/// [_i2.EmptyRouterPage]
+class FeedRouter extends _i2.PageRouteInfo<void> {
+  const FeedRouter({List<_i2.PageRouteInfo>? children})
       : super(FeedRouter.name, path: 'feed', initialChildren: children);
 
   static const String name = 'FeedRouter';
 }
 
 /// generated route for
-/// [_i3.EmptyRouterPage]
-class YouRouter extends _i3.PageRouteInfo<void> {
-  const YouRouter({List<_i3.PageRouteInfo>? children})
+/// [_i2.EmptyRouterPage]
+class YouRouter extends _i2.PageRouteInfo<void> {
+  const YouRouter({List<_i2.PageRouteInfo>? children})
       : super(YouRouter.name, path: 'you', initialChildren: children);
 
   static const String name = 'YouRouter';
@@ -145,7 +178,7 @@ class YouRouter extends _i3.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.FeedPage]
-class FeedRoute extends _i3.PageRouteInfo<void> {
+class FeedRoute extends _i2.PageRouteInfo<void> {
   const FeedRoute() : super(FeedRoute.name, path: '');
 
   static const String name = 'FeedRoute';
@@ -153,8 +186,8 @@ class FeedRoute extends _i3.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.PostPage]
-class PostRoute extends _i3.PageRouteInfo<PostRouteArgs> {
-  PostRoute({_i8.Key? key, required String postId})
+class PostRoute extends _i2.PageRouteInfo<PostRouteArgs> {
+  PostRoute({_i9.Key? key, required String postId})
       : super(PostRoute.name,
             path: 'post/:postId',
             args: PostRouteArgs(key: key, postId: postId),
@@ -166,7 +199,7 @@ class PostRoute extends _i3.PageRouteInfo<PostRouteArgs> {
 class PostRouteArgs {
   const PostRouteArgs({this.key, required this.postId});
 
-  final _i8.Key? key;
+  final _i9.Key? key;
 
   final String postId;
 
@@ -178,8 +211,8 @@ class PostRouteArgs {
 
 /// generated route for
 /// [_i6.UserPage]
-class UserRoute extends _i3.PageRouteInfo<UserRouteArgs> {
-  UserRoute({_i8.Key? key, required String username})
+class UserRoute extends _i2.PageRouteInfo<UserRouteArgs> {
+  UserRoute({_i9.Key? key, required String username})
       : super(UserRoute.name,
             path: 'user/:username',
             args: UserRouteArgs(key: key, username: username),
@@ -191,7 +224,7 @@ class UserRoute extends _i3.PageRouteInfo<UserRouteArgs> {
 class UserRouteArgs {
   const UserRouteArgs({this.key, required this.username});
 
-  final _i8.Key? key;
+  final _i9.Key? key;
 
   final String username;
 
@@ -203,8 +236,16 @@ class UserRouteArgs {
 
 /// generated route for
 /// [_i7.YouPage]
-class YouRoute extends _i3.PageRouteInfo<void> {
+class YouRoute extends _i2.PageRouteInfo<void> {
   const YouRoute() : super(YouRoute.name, path: '');
 
   static const String name = 'YouRoute';
+}
+
+/// generated route for
+/// [_i8.LoginPage]
+class LoginRoute extends _i2.PageRouteInfo<void> {
+  const LoginRoute() : super(LoginRoute.name, path: 'login');
+
+  static const String name = 'LoginRoute';
 }

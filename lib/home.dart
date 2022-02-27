@@ -17,18 +17,8 @@ class HomePage extends StatelessWidget {
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
             currentIndex: tabsRouter.activeIndex,
-            onTap: (int index) {
-              if (index == tabsRouter.activeIndex) {
-                final replaceAll = AutoRouter.of(context).replaceAll;
-                if (index == 0) {
-                  replaceAll([const FeedRoute()]);
-                } else if (index == 1) {
-                  replaceAll([const YouRoute()]);
-                }
-              } else {
-                tabsRouter.setActiveIndex(index);
-              }
-            },
+            onTap: (int index) => _selectTab(
+                context: context, index: index, tabsRouter: tabsRouter),
             showSelectedLabels: false,
             showUnselectedLabels: false,
             items: const [
@@ -43,5 +33,21 @@ class HomePage extends StatelessWidget {
             ]);
       },
     );
+  }
+
+  _selectTab(
+      {required BuildContext context,
+      required int index,
+      required TabsRouter tabsRouter}) {
+    if (index == tabsRouter.activeIndex) {
+      final replaceAll = AutoRouter.of(context).replaceAll;
+      if (index == 0) {
+        replaceAll([const FeedRoute()]);
+      } else if (index == 1) {
+        replaceAll([const YouRoute()]);
+      }
+    } else {
+      tabsRouter.setActiveIndex(index);
+    }
   }
 }
