@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class EmailField extends StatelessWidget {
@@ -10,7 +11,14 @@ class EmailField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      decoration: const InputDecoration(label: Text('email')),
+      autofillHints: const [AutofillHints.email],
+      decoration: InputDecoration(
+          label: const Text('email'),
+          suffixIcon: IconButton(
+              onPressed: () {
+                controller.clear();
+              },
+              icon: const Icon(CupertinoIcons.clear_circled_solid))),
       controller: controller,
     );
   }
