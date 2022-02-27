@@ -36,7 +36,7 @@ class LoginForm extends StatelessWidget {
                     onPressed: () {},
                     child: const Padding(
                       padding: EdgeInsets.all(16.0),
-                      child: Text('Continue'),
+                      child: Text('Sign In'),
                     )),
               ),
               Padding(

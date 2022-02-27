@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:blobgram/auth/components/name.dart';
+import 'package:blobgram/controllers/router.gr.dart';
 import 'package:flutter/material.dart';
 
 import 'email.dart';
@@ -32,7 +34,10 @@ class SignUpWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AutoRouter.of(context)
+                          .push(LinkSentRoute(email: 'example@email.com'));
+                    },
                     child: const Padding(
                       padding: EdgeInsets.all(16.0),
                       child: Text('Continue'),

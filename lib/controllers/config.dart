@@ -25,4 +25,5 @@ abstract class Path {
 
   static const login = 'login';
   static const signup = 'signup';
+  static const linkSent = 'linkSent/:email';
 }
