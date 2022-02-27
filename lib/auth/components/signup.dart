@@ -1,12 +1,15 @@
-import 'package:blobgram/auth/components/email.dart';
-import 'package:blobgram/auth/components/password.dart';
+import 'package:blobgram/auth/components/name.dart';
 import 'package:flutter/material.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({Key? key}) : super(key: key);
+import 'email.dart';
+import 'password.dart';
+
+class SignUpWidget extends StatelessWidget {
+  const SignUpWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final nameController = TextEditingController();
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
 
@@ -19,17 +22,13 @@ class LoginForm extends StatelessWidget {
             children: [
               Padding(
                   padding: const EdgeInsets.all(8.0),
+                  child: NameField(controller: nameController)),
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: EmailField(controller: emailController)),
               Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Column(children: [
-                    PasswordField(controller: passwordController),
-                    Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                      TextButton(
-                          onPressed: () {},
-                          child: const Text('Forgot Password?')),
-                    ])
-                  ])),
+                  child: PasswordField(controller: passwordController)),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
@@ -37,15 +36,6 @@ class LoginForm extends StatelessWidget {
                     child: const Padding(
                       padding: EdgeInsets.all(16.0),
                       child: Text('Continue'),
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: OutlinedButton(
-                    onPressed: () {},
-                    child: const Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Text('Passwordless Sign In'),
                     )),
               ),
             ]),

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:blobgram/auth/pages/login.dart';
+import 'package:blobgram/auth/pages/signup.dart';
 import 'package:blobgram/pages/feed.dart';
 import 'package:blobgram/home.dart';
 import 'package:blobgram/pages/not_found.dart';
@@ -41,11 +42,8 @@ import 'config.dart';
         page: EmptyRouterPage,
         fullscreenDialog: true,
         children: [
-          AutoRoute(
-              initial: true,
-              path: Path.login,
-              page: LoginPage,
-              fullscreenDialog: true),
+          AutoRoute(initial: true, path: Path.login, page: LoginPage),
+          AutoRoute(path: 'signup', page: SignupPage),
           AutoRoute(path: '*', page: NotFoundPage),
         ]),
     AutoRoute(path: '*', page: NotFoundPage),

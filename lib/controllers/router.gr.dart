@@ -11,9 +11,10 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:flutter/material.dart' as _i9;
+import 'package:flutter/material.dart' as _i10;
 
 import '../auth/pages/login.dart' as _i8;
+import '../auth/pages/signup.dart' as _i9;
 import '../home.dart' as _i1;
 import '../pages/feed.dart' as _i4;
 import '../pages/not_found.dart' as _i3;
@@ -22,7 +23,7 @@ import '../pages/user.dart' as _i6;
 import '../pages/you.dart' as _i7;
 
 class AppRouter extends _i2.RootStackRouter {
-  AppRouter([_i9.GlobalKey<_i9.NavigatorState>? navigatorKey])
+  AppRouter([_i10.GlobalKey<_i10.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
@@ -76,9 +77,11 @@ class AppRouter extends _i2.RootStackRouter {
     },
     LoginRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: const _i8.LoginPage(),
-          fullscreenDialog: true);
+          routeData: routeData, child: const _i8.LoginPage());
+    },
+    SignupRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i9.SignupPage());
     }
   };
 
@@ -125,6 +128,8 @@ class AppRouter extends _i2.RootStackRouter {
               fullMatch: true),
           _i2.RouteConfig(LoginRoute.name,
               path: 'login', parent: AuthRouter.name),
+          _i2.RouteConfig(SignupRoute.name,
+              path: 'signup', parent: AuthRouter.name),
           _i2.RouteConfig(NotFoundRoute.name,
               path: '*', parent: AuthRouter.name)
         ]),
@@ -187,7 +192,7 @@ class FeedRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i5.PostPage]
 class PostRoute extends _i2.PageRouteInfo<PostRouteArgs> {
-  PostRoute({_i9.Key? key, required String postId})
+  PostRoute({_i10.Key? key, required String postId})
       : super(PostRoute.name,
             path: 'post/:postId',
             args: PostRouteArgs(key: key, postId: postId),
@@ -199,7 +204,7 @@ class PostRoute extends _i2.PageRouteInfo<PostRouteArgs> {
 class PostRouteArgs {
   const PostRouteArgs({this.key, required this.postId});
 
-  final _i9.Key? key;
+  final _i10.Key? key;
 
   final String postId;
 
@@ -212,7 +217,7 @@ class PostRouteArgs {
 /// generated route for
 /// [_i6.UserPage]
 class UserRoute extends _i2.PageRouteInfo<UserRouteArgs> {
-  UserRoute({_i9.Key? key, required String username})
+  UserRoute({_i10.Key? key, required String username})
       : super(UserRoute.name,
             path: 'user/:username',
             args: UserRouteArgs(key: key, username: username),
@@ -224,7 +229,7 @@ class UserRoute extends _i2.PageRouteInfo<UserRouteArgs> {
 class UserRouteArgs {
   const UserRouteArgs({this.key, required this.username});
 
-  final _i9.Key? key;
+  final _i10.Key? key;
 
   final String username;
 
@@ -248,4 +253,12 @@ class LoginRoute extends _i2.PageRouteInfo<void> {
   const LoginRoute() : super(LoginRoute.name, path: 'login');
 
   static const String name = 'LoginRoute';
+}
+
+/// generated route for
+/// [_i9.SignupPage]
+class SignupRoute extends _i2.PageRouteInfo<void> {
+  const SignupRoute() : super(SignupRoute.name, path: 'signup');
+
+  static const String name = 'SignupRoute';
 }

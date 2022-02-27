@@ -24,4 +24,5 @@ abstract class Path {
   static const post = 'post/:postId';
 
   static const login = 'login';
+  static const signup = 'signup';
 }
