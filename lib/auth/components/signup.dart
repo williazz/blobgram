@@ -36,7 +36,7 @@ class SignUpWidget extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: () {
                       AutoRouter.of(context)
-                          .push(LinkSentRoute(email: 'example@email.com'));
+                          .push(LinkSentRoute(email: 'signup@example.com'));
                     },
                     child: const Padding(
                       padding: EdgeInsets.all(16.0),

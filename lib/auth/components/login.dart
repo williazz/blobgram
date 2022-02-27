@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:blobgram/auth/components/email.dart';
 import 'package:blobgram/auth/components/password.dart';
+import 'package:blobgram/controllers/router.gr.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatelessWidget {
@@ -33,7 +35,9 @@ class LoginForm extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AutoRouter.of(context).replaceAll(const [HomeRoute()]);
+                    },
                     child: const Padding(
                       padding: EdgeInsets.all(16.0),
                       child: Text('Sign In'),
@@ -42,7 +46,10 @@ class LoginForm extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AutoRouter.of(context).push(
+                          LinkSentRoute(email: 'passwordless@example.com'));
+                    },
                     child: const Padding(
                       padding: EdgeInsets.all(16.0),
                       child: Text('Passwordless Sign In'),

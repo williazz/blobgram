@@ -16,12 +16,15 @@ class SignupPage extends StatelessWidget {
           title: const Text('Sign Up'),
           actions: [
             Center(
-                child: TextButton(
-                    onPressed: () {
+                child: InkWell(
+                    onTap: () {
                       AutoRouter.of(context).replace(const LoginRoute());
                     },
-                    child: const Text('Log In',
-                        style: TextStyle(color: Colors.white)))),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child:
+                          Text('Log In', style: TextStyle(color: Colors.white)),
+                    ))),
           ]),
       body: const Center(child: SignUpWidget()),
     );
