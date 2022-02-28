@@ -33,8 +33,8 @@ class LoginForm extends StatelessWidget {
                     Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                       TextButton(
                           onPressed: () {
-                            AutoRouter.of(context).push(LinkSentRoute(
-                                email: 'forgotpassword@example.com'));
+                            AutoRouter.of(context)
+                                .push(const ForgotPasswordRoute());
                           },
                           child: const Text('Forgot Password?')),
                     ])

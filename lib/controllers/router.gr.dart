@@ -11,8 +11,10 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:flutter/material.dart' as _i12;
+import 'package:flutter/cupertino.dart' as _i14;
+import 'package:flutter/material.dart' as _i13;
 
+import '../auth/pages/forgot_password.dart' as _i12;
 import '../auth/pages/link_sent.dart' as _i11;
 import '../auth/pages/login.dart' as _i8;
 import '../auth/pages/passwordless_login.dart' as _i10;
@@ -25,7 +27,7 @@ import '../pages/user.dart' as _i6;
 import '../pages/you.dart' as _i7;
 
 class AppRouter extends _i2.RootStackRouter {
-  AppRouter([_i12.GlobalKey<_i12.NavigatorState>? navigatorKey])
+  AppRouter([_i13.GlobalKey<_i13.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
@@ -97,6 +99,10 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i11.LinkSentPage(key: args.key, email: args.email));
+    },
+    ForgotPasswordRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i12.ForgotPasswordPage());
     }
   };
 
@@ -149,6 +155,8 @@ class AppRouter extends _i2.RootStackRouter {
               path: 'passwordlessLogin', parent: AuthRouter.name),
           _i2.RouteConfig(LinkSentRoute.name,
               path: 'linkSent/:email', parent: AuthRouter.name),
+          _i2.RouteConfig(ForgotPasswordRoute.name,
+              path: 'forgotPassword', parent: AuthRouter.name),
           _i2.RouteConfig(NotFoundRoute.name,
               path: '*', parent: AuthRouter.name)
         ]),
@@ -211,7 +219,7 @@ class FeedRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i5.PostPage]
 class PostRoute extends _i2.PageRouteInfo<PostRouteArgs> {
-  PostRoute({_i12.Key? key, required String postId})
+  PostRoute({_i14.Key? key, required String postId})
       : super(PostRoute.name,
             path: 'post/:postId',
             args: PostRouteArgs(key: key, postId: postId),
@@ -223,7 +231,7 @@ class PostRoute extends _i2.PageRouteInfo<PostRouteArgs> {
 class PostRouteArgs {
   const PostRouteArgs({this.key, required this.postId});
 
-  final _i12.Key? key;
+  final _i14.Key? key;
 
   final String postId;
 
@@ -236,7 +244,7 @@ class PostRouteArgs {
 /// generated route for
 /// [_i6.UserPage]
 class UserRoute extends _i2.PageRouteInfo<UserRouteArgs> {
-  UserRoute({_i12.Key? key, required String username})
+  UserRoute({_i14.Key? key, required String username})
       : super(UserRoute.name,
             path: 'user/:username',
             args: UserRouteArgs(key: key, username: username),
@@ -248,7 +256,7 @@ class UserRoute extends _i2.PageRouteInfo<UserRouteArgs> {
 class UserRouteArgs {
   const UserRouteArgs({this.key, required this.username});
 
-  final _i12.Key? key;
+  final _i14.Key? key;
 
   final String username;
 
@@ -294,7 +302,7 @@ class PasswordlessLoginRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i11.LinkSentPage]
 class LinkSentRoute extends _i2.PageRouteInfo<LinkSentRouteArgs> {
-  LinkSentRoute({_i12.Key? key, required String email})
+  LinkSentRoute({_i14.Key? key, required String email})
       : super(LinkSentRoute.name,
             path: 'linkSent/:email',
             args: LinkSentRouteArgs(key: key, email: email),
@@ -306,7 +314,7 @@ class LinkSentRoute extends _i2.PageRouteInfo<LinkSentRouteArgs> {
 class LinkSentRouteArgs {
   const LinkSentRouteArgs({this.key, required this.email});
 
-  final _i12.Key? key;
+  final _i14.Key? key;
 
   final String email;
 
@@ -314,4 +322,13 @@ class LinkSentRouteArgs {
   String toString() {
     return 'LinkSentRouteArgs{key: $key, email: $email}';
   }
+}
+
+/// generated route for
+/// [_i12.ForgotPasswordPage]
+class ForgotPasswordRoute extends _i2.PageRouteInfo<void> {
+  const ForgotPasswordRoute()
+      : super(ForgotPasswordRoute.name, path: 'forgotPassword');
+
+  static const String name = 'ForgotPasswordRoute';
 }
