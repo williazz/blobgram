@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:blobgram/auth/pages/link_sent.dart';
 import 'package:blobgram/auth/pages/login.dart';
+import 'package:blobgram/auth/pages/passwordless_login.dart';
 import 'package:blobgram/auth/pages/signup.dart';
 import 'package:blobgram/pages/feed.dart';
 import 'package:blobgram/home.dart';
@@ -45,6 +46,7 @@ import 'config.dart';
         children: [
           AutoRoute(initial: true, path: Path.login, page: LoginPage),
           AutoRoute(path: Path.signup, page: SignupPage),
+          AutoRoute(path: Path.passwordlessLogin, page: PasswordlessLoginPage),
           AutoRoute(path: Path.linkSent, page: LinkSentPage),
           AutoRoute(path: '*', page: NotFoundPage),
         ]),

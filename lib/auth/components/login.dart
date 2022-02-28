@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:blobgram/auth/components/clearable_text_field.dart';
-import 'package:blobgram/auth/components/password_field.dart';
 import 'package:blobgram/controllers/router.gr.dart';
 import 'package:flutter/material.dart';
+
+import 'clearable_text_field.dart';
+import 'password_field.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -53,8 +54,8 @@ class LoginForm extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: OutlinedButton(
                     onPressed: () {
-                      AutoRouter.of(context).push(
-                          LinkSentRoute(email: 'passwordless@example.com'));
+                      AutoRouter.of(context)
+                          .push(const PasswordlessLoginRoute());
                     },
                     child: const Padding(
                       padding: EdgeInsets.all(16.0),

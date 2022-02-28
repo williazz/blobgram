@@ -23,7 +23,10 @@ abstract class Path {
   static const user = 'user/:username';
   static const post = 'post/:postId';
 
+  // auth
   static const login = 'login';
   static const signup = 'signup';
   static const linkSent = 'linkSent/:email';
+  static const passwordlessLogin = 'passwordlessLogin';
+  static const forgotPassword = 'forgotPassword';
 }
